@@ -230,6 +230,69 @@ body{background:var(--cream);font-family:'Nunito',sans-serif;min-height:100vh;ov
 .stat-box-label{font-size:10px;color:var(--gray);font-weight:700;margin-top:1px;}
 .restart-btn{font-family:'Fredoka One',cursive;font-size:20px;padding:12px 34px;border-radius:14px;background:var(--navy);color:#fff;border:none;cursor:pointer;transition:background .15s,transform .12s;}
 .restart-btn:hover{background:var(--blue);transform:scale(1.03);}
+
+/* PAUSE / WATER COOLER OVERLAY */
+.pause-overlay{position:fixed;inset:0;background:rgba(15,52,96,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:900;gap:16px;padding:20px;}
+.pause-overlay.hidden{display:none;}
+.pause-title{font-family:'Fredoka One',cursive;font-size:32px;color:#fff;text-align:center;}
+.pause-sub{font-size:14px;color:rgba(255,255,255,.75);text-align:center;max-width:320px;line-height:1.7;font-weight:600;}
+.pause-cooler{font-size:64px;animation:wobble 2s infinite ease-in-out;}
+@keyframes wobble{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
+.pause-btn{font-family:'Fredoka One',cursive;font-size:18px;padding:12px 32px;border-radius:14px;border:none;cursor:pointer;transition:transform .12s;}
+.pause-btn.resume{background:#fff;color:var(--navy);}
+.pause-btn.resume:hover{transform:scale(1.04);}
+.pause-btn.reset{background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.3);margin-top:4px;font-size:14px;padding:8px 20px;}
+.pause-btn.reset:hover{background:rgba(255,255,255,.25);}
+
+/* HEADER CONTROL BUTTONS */
+.hdr-btns{display:flex;gap:6px;align-items:center;}
+.hbtn{font-family:'Fredoka One',cursive;font-size:12px;padding:4px 10px;border-radius:10px;border:2px solid var(--border);background:var(--white);color:var(--gray);cursor:pointer;transition:background .1s,transform .1s;}
+.hbtn:hover{background:var(--lgray);transform:scale(1.04);}
+.hbtn.pause-hbtn{background:var(--lb);color:var(--blue);border-color:#B5D4F4;}
+.hbtn.reset-hbtn{background:var(--lr);color:var(--red);border-color:#F7C1C1;}
+
+/* PHONE TEXT POPUP */
+.phone-popup{position:fixed;bottom:80px;max-width:260px;z-index:450;pointer-events:none;animation:phoneIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+.phone-popup.left{left:-280px;animation-name:phoneInLeft;}
+.phone-popup.right{right:-280px;animation-name:phoneInRight;}
+.phone-popup.slide-out-left{animation:phoneOutLeft .35s ease forwards;}
+.phone-popup.slide-out-right{animation:phoneOutRight .35s ease forwards;}
+@keyframes phoneInLeft{from{left:-280px;opacity:0;}to{left:12px;opacity:1;}}
+@keyframes phoneInRight{from{right:-280px;opacity:0;}to{right:12px;opacity:1;}}
+@keyframes phoneOutLeft{from{left:12px;opacity:1;}to{left:-280px;opacity:0;}}
+@keyframes phoneOutRight{from{right:12px;opacity:1;}to{right:-280px;opacity:0;}}
+.phone-frame{background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.25);overflow:hidden;border:2px solid var(--border);}
+.phone-bar{padding:6px 12px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:6px;}
+.phone-bar.chad{background:#0F3460;}
+.phone-bar.jessica{background:#D4537E;}
+.phone-bar.bob{background:#854F0B;}
+.phone-bar.samantha{background:#3B6D11;}
+.phone-bar.randy{background:#A32D2D;}
+.phone-body{padding:10px 12px;font-size:12px;line-height:1.5;color:#2C2C2A;background:#F9F9F9;}
+.phone-bubble{background:#E5E5EA;border-radius:12px 12px 12px 3px;padding:7px 10px;font-size:11px;line-height:1.5;color:#1C1C1E;}
+
+/* COMMISSION DEDUCTION ANIMATION */
+.comm-ding{position:fixed;top:52px;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:18px;color:#A32D2D;background:var(--lr);border:2px solid #F7C1C1;border-radius:10px;padding:4px 14px;pointer-events:none;animation:dingUp 1.6s ease forwards;z-index:600;white-space:nowrap;}
+@keyframes dingUp{0%{opacity:1;transform:translateX(-50%) translateY(0);}60%{opacity:1;transform:translateX(-50%) translateY(-8px);}100%{opacity:0;transform:translateX(-50%) translateY(-20px);}}
+
+/* COMBO INDICATOR */
+.combo-badge{position:fixed;top:48px;right:14px;font-family:'Fredoka One',cursive;font-size:14px;padding:4px 12px;border-radius:10px;z-index:600;pointer-events:none;animation:comboPop .3s cubic-bezier(.34,1.56,.64,1) both;}
+.combo-badge.x3{background:#FAEEDA;color:#854F0B;border:2px solid #FAC775;}
+.combo-badge.x5{background:var(--lightgold);color:#B8860B;border:2px solid #DAA520;}
+.combo-badge.x10{background:#0F3460;color:#fff;border:2px solid #185FA5;}
+@keyframes comboPop{from{transform:scale(0) rotate(-10deg);opacity:0;}to{transform:scale(1) rotate(0);opacity:1;}}
+
+/* TAGLINE */
+.game-tagline{font-size:10px;color:var(--gray);font-weight:600;font-style:italic;margin-top:1px;}
+
+/* LOADING SCREEN */
+#loading-screen{background:linear-gradient(160deg,#0F3460,#185FA5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;}
+.loading-logo{font-size:52px;animation:deskIn .5s ease both;}
+.loading-title{font-family:'Fredoka One',cursive;font-size:24px;color:#fff;text-align:center;}
+.loading-bar-wrap{width:280px;height:8px;background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden;}
+.loading-bar{height:100%;background:#fff;border-radius:4px;transition:width .1s linear;}
+.loading-status{font-size:12px;color:rgba(255,255,255,.7);font-weight:700;text-align:center;min-height:18px;}
+.loading-joke{font-size:11px;color:rgba(255,255,255,.5);text-align:center;max-width:280px;line-height:1.5;font-style:italic;min-height:32px;}
 </style>
 </head>
 <body>
@@ -281,13 +344,27 @@ body{background:var(--cream);font-family:'Nunito',sans-serif;min-height:100vh;ov
   <div class="hiring-bar-wrap"><div class="hiring-bar" id="hiring-bar"></div></div>
 </div>
 
+<!-- ══ LOADING SCREEN ══ -->
+<div class="screen hidden" id="loading-screen">
+  <div class="loading-logo">🏦</div>
+  <div class="loading-title" id="loading-title">Logging into Encompass...</div>
+  <div class="loading-bar-wrap"><div class="loading-bar" id="loading-bar" style="width:0%"></div></div>
+  <div class="loading-status" id="loading-status">Authenticating credentials...</div>
+  <div class="loading-joke" id="loading-joke"></div>
+</div>
+
 <!-- ══ GAME SCREEN ══ -->
 <div id="game-screen" class="gone">
 <div class="game-inner">
   <div class="hdr">
     <div>
       <div class="g-title">📋 Loan Officer Simulator</div>
+      <div class="game-tagline" id="game-tagline">Where dreams go to get denied.</div>
       <div style="font-size:10px;color:var(--gray);font-weight:700;" id="level-label">Level 1 — Intern</div>
+    </div>
+    <div class="hdr-btns">
+      <button class="hbtn pause-hbtn" id="pause-btn-hdr">🚬 Cig Break</button>
+      <button class="hbtn reset-hbtn" id="reset-btn-hdr">↺ Reset</button>
     </div>
     <div class="pills">
       <div class="pill g">💰 <span id="p-comm">$0</span></div>
@@ -337,6 +414,18 @@ body{background:var(--cream);font-family:'Nunito',sans-serif;min-height:100vh;ov
 <div class="overlay hidden" id="overlay">
   <div class="ocard" id="ocard"></div>
 </div>
+
+<!-- ══ PAUSE OVERLAY ══ -->
+<div class="pause-overlay hidden" id="pause-overlay">
+  <div class="pause-cooler">🚬</div>
+  <div class="pause-title">You stepped outside for a smoke.</div>
+  <div class="pause-sub" id="pause-sub">Karen from accounting is telling a story about her cats. Time has stopped. Your inbox is frozen. Nothing can hurt you here.</div>
+  <button class="pause-btn resume" id="pause-resume-btn">Back to Work 😮‍💨</button>
+  <button class="pause-btn reset" id="pause-reset-btn">🗑️ Start Over (Your pipeline gets given to the new guy)</button>
+</div>
+
+<!-- ══ PHONE POPUP CONTAINER ══ -->
+<div id="phone-popup-wrap"></div>
 
 <!-- ══ END SCREEN ══ -->
 <div class="end-screen hidden" id="end-screen"></div>
@@ -990,6 +1079,138 @@ const LEVEL_TITLES=["Intern","Loan Officer","Sr. Loan Officer","Top Producer","R
 const XP_THRESHOLDS=[0,300,800,1800,3500,6000,10000,16000,25000,40000];
 const MOOD_ICONS={rude:"😤",needy:"🥺",chill:"😎",pro:"💼",wild:"🤠"};
 
+const TAGLINES=[
+  "Where dreams go to get denied.",
+  "Closing deals and losing friends.",
+  "The rate is too high. The client is worse.",
+  "Every inbox is a new adventure in disappointment.",
+  "Turning 580 FICO scores into life lessons.",
+  "Ask one question. Save your sanity.",
+  "If you can survive the inbox, you can survive anything.",
+  "Not all heroes approve loans. Some just deny them correctly.",
+  "Your pipeline. Their problems. Your commission.",
+  "Making Rocket Mortgage feel like a good idea since 2024.",
+];
+
+const LOADING_STEPS=[
+  {pct:15,status:"Authenticating credentials...",joke:""},
+  {pct:32,status:"Syncing Salesforce contacts...",joke:""},
+  {pct:47,status:"Loading pipeline data...",joke:"Did you know the average loan takes 47 days to close? That's 47 days of 'just checking in' emails."},
+  {pct:61,status:"Connecting to credit bureaus...",joke:""},
+  {pct:74,status:"Fetching rate sheets...",joke:"Today's rate: high. Tomorrow's rate: also high. Your client's expectations: not high enough."},
+  {pct:89,status:"Calibrating compliance engine...",joke:""},
+  {pct:97,status:"Waiting for Encompass to respond...",joke:"Encompass has been loading since 2019. We're still waiting. This is normal."},
+  {pct:97,status:"Still waiting for Encompass...",joke:"The IT team is aware. They've been aware for 3 years."},
+  {pct:99,status:"Almost there...",joke:"Fun fact: the word 'underwriting' was invented to describe the process of making you feel bad about your finances."},
+  {pct:100,status:"Ready. Good luck. You'll need it.",joke:""},
+];
+
+const PAUSE_SUBS=[
+  "You're outside. The air smells like exhaust and bad credit scores. It's peaceful.",
+  "Dave from processing is out here too. You make eye contact. Neither of you says anything. You understand each other completely.",
+  "A realtor just called your cell. You watched it ring. You put it back in your pocket. Not today.",
+  "You're staring at the parking lot thinking about a $25k HELOC request from someone with a 532 FICO. The cigarette helps.",
+  "The compliance officer walks by and nods at you. You nod back. You are both tired.",
+  "You're outside calculating how many bad loans it would take to get fired. Three. The answer is three. You have two.",
+  "A pigeon lands near you. It looks like it also just denied someone. You feel seen.",
+  "Your phone buzzes. It's Chad the realtor. You flip it face down on the ledge. He can wait.",
+  "You're out here thinking about how 'pre-approved' and 'approved' mean completely different things and nobody understands that.",
+  "The new guy pokes his head out and asks if you're okay. You say yes. You are not okay. The inbox is full.",
+  "You're outside doing mental math on your commission for the month. The cigarette is not helping the math.",
+  "Randy from eXp texts you. You see the notification. You look back at the parking lot. Randy can wait.",
+  "You take one long look at the sky and remember why you got into mortgages. Then you remember you got into it for the commission. Same thing.",
+  "Karen from accounting found you out here and started talking about her cats. Even outside, there is no escape.",
+];
+
+const PHONE_AGENTS={
+  chad:{name:"Chad Realtor",color:"chad",emoji:"🏡",
+    msgs:["hey need that letter in 10 min lol. no pressure 👍",
+          "my buyer is READY. are you ready? because they're ready.",
+          "just checking — you DID get my last 4 texts right?",
+          "so the sellers want to know if we're serious. ARE WE SERIOUS.",
+          "chad here. again. still need that pre-approval. still urgent.",
+          "my client drove by the house AGAIN. they're obsessed. help me help them.",
+          "quick q: how fast can you close? asking for a buyer who is literally in a car.",
+          "the other agent says their lender is faster. prove them wrong please.",
+          "you're my guy. you've always been my guy. please be my guy on this one."]},
+  jessica:{name:"Jessica 🌸 RE/MAX",color:"jessica",emoji:"💕",
+    msgs:["hiii!! any update on my client?? 🥺",
+          "omg I found the CUTEST house for them, we just need the letter!!",
+          "sooo my client is like obsessed with this place and I don't want to lose it 😭",
+          "hey girly! (or guy!) can we make this happen today? pretty please??",
+          "ok so the sellers are super sweet and I think they'd really love my buyers 🏡✨",
+          "just sending good vibes and also really needing that pre-approval letter 💌",
+          "my client cried when they saw the backyard. CRIED. we have to get this house.",
+          "no pressure but also please hurry, love you, byeee 💕"]},
+  bob:{name:"Bob Broker",color:"bob",emoji:"😤",
+    msgs:["I've been in real estate for 31 years. THIRTY ONE. And this is how you treat me.",
+          "In my day, a lender picked up the phone. Just picked it up. Wild concept.",
+          "I sent you THREE deals this month. THREE. I expect some reciprocity here.",
+          "My client is a serious buyer. Are you a serious lender? That's a real question.",
+          "I don't leave Zillow reviews but I'm not NOT leaving Zillow reviews.",
+          "I've closed 800 deals. Eight hundred. You're holding up number 801.",
+          "The market doesn't wait. Do you understand that? THE MARKET DOES NOT WAIT.",
+          "This is the third time I'm reaching out. I have a log. I keep logs."]},
+  samantha:{name:"Samantha • Coldwell",color:"samantha",emoji:"🤝",
+    msgs:["Hi there! Just circling back on my buyer. Hope you're having a great day!",
+          "Quick touch-base — any movement on that pre-approval? No rush! (There is some rush.)",
+          "Just wanted to make sure my email didn't get lost! Happy to resend anything needed 😊",
+          "Following up on my follow-up! LOL 😅 But seriously, any news?",
+          "My seller just dropped the price $15k. Really hoping we can make this work!",
+          "Checking in! Hope the week is going well. My client is still very interested!",
+          "You're my favorite LO, you know that right? Just need this one tiny thing 🙏",
+          "Friendly reminder that this listing is getting a lot of showings. Just FYI!"]},
+  randy:{name:"Randy eXp",color:"randy",emoji:"😩",
+    msgs:["MY CLIENT IS IN THE DRIVEWAY. RIGHT NOW. THEY ARE IN THE DRIVEWAY.",
+          "ok so the seller gave us until 5pm. it is currently 4:47pm.",
+          "I'm not panicking but I'm also kind of panicking.",
+          "the inspection is tomorrow and I still don't have the letter help",
+          "my client keeps texting me asking if they got approved and I keep saying 'soon'",
+          "PLEASE. I am BEGGING you. They love this house. I love them. Close this.",
+          "ok new plan: what if we just... approve them and figure out the details after?",
+          "I haven't slept. My client hasn't slept. The house is just sitting there."]},
+};
+
+// Varied property responses
+const PROP_CLEAN=[
+  ["Single family home. Three bed, two bath. Nothing unusual.","🏠 Standard single-family. Clean property. No concerns."],
+  ["It's a newer construction in a subdivision. Pretty basic.","🏠 New construction, standard single-family. No issues."],
+  ["Ranch style, half acre lot. Owner occupied.","🏠 Single-family ranch. Clean property type. Good to go."],
+  ["Four bed two bath. The neighborhood is nice.","🏠 Standard single-family. Property looks clean."],
+  ["It's a townhouse in a community. HOA is normal.","🏠 Townhouse with warrantable HOA. Should be fine."],
+  ["Colonial style, built in 1994. No weird features.","🏠 Standard single-family, no property concerns."],
+  ["Two story, attached garage, normal neighborhood.","🏠 Single-family, nothing unusual. Property is clean."],
+  ["Split level. Big yard. Has a deck.","🏠 Single-family split level. Deck is fine. No concerns."],
+  ["Corner lot, three bed, updated kitchen apparently.","🏠 Standard single-family. Clean property type."],
+  ["It's in a nice subdivision, HOA covers lawn care.","🏠 Single-family with standard HOA. No issues."],
+];
+const PROP_FIXER=[
+  ["Needs 'some work.' Listing says 'investor special.' Roof has character.","🔨 Fixer-upper. Will likely fail FHA/VA minimum property standards."],
+  ["The listing says 'sold as-is.' Seller won't make repairs.","🔨 As-is sale. FHA/VA will require repairs before funding."],
+  ["Foundation 'has some settling.' Inspector called it 'significant.'","🔨 Structural concerns. This will fail appraisal conditions."],
+  ["It needs a new roof and HVAC. The listing calls it 'charming.'","🔨 Mechanicals need replacing. FHA will flag this at appraisal."],
+  ["The seller says it's cosmetic. The inspector used the word 'extensive.'","🔨 Likely appraisal conditions. Condition issues could kill this."],
+  ["Bank-owned property. Vacant 2 years. 'Priced accordingly.'","🔨 REO property with vacancy. Expect major appraisal conditions."],
+  ["The roof is original from 1987. Seller says it's fine. It's not fine.","🔨 Roof age will flag at appraisal. FHA won't fund without repair."],
+  ["There's some water damage the seller 'just noticed.' Convenient.","🔨 Water damage disclosure = appraisal red flag. Risky file."],
+];
+const PROP_RURAL=[
+  ["Rural. Big lot. Has a pond. And chickens apparently.","🌾 Rural/acreage. USDA eligibility depends on the area map."],
+  ["40 acres. Middle of nowhere. My kind of place.","🌾 Large acreage rural. USDA may work — check eligible area."],
+  ["Out in the country. 15 acres. Very peaceful.","🌾 Rural property. Verify USDA eligible area before proceeding."],
+  ["It's on a gravel road. Cell service is questionable.","🌾 Rural acreage. USDA eligibility check required."],
+  ["Farmette. Small barn. 8 acres. Says 'hobby farm' in listing.","🌾 Agricultural use possible. USDA eligible area check needed."],
+  ["Way out past the city limits. No HOA obviously.","🌾 Rural property. Check USDA map — could work, could not."],
+  ["Horse property. 20 acres. Seller is keeping the horses though.","🌾 Acreage/equestrian property. USDA eligibility depends on zoning."],
+];
+const PROP_CONDO=[
+  ["Condo. Mixed-use building. HOA is like 30% owner-occupied.","🏢 Non-warrantable condo. Fannie/Freddie won't touch this."],
+  ["It's a condo in a building where most units are Airbnbs.","🏢 Non-warrantable. Short-term rental concentration = no agency approval."],
+  ["Condo, 5th floor. One entity owns 30% of the building.","🏢 Non-warrantable. Single entity concentration over 10% kills agency financing."],
+  ["It's a condo hotel. Has a rental program.","🏢 Condo hotel — not eligible for conventional financing."],
+  ["New construction condo. Building is only 40% sold.","🏢 New condo project under 51% sold. Non-warrantable until threshold hit."],
+];
+
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
@@ -1036,6 +1257,142 @@ function generateClient(){
   };
 }
 
+// ── PAUSE / WATER COOLER ──────────────────────────────────
+let _pausedTimerState={};
+function pauseGame(){
+  if(S.gameOver) return;
+  S.paused=true;
+  clearAllTimers();
+  document.getElementById('pause-overlay').classList.remove('hidden');
+  document.getElementById('pause-sub').textContent=pick(PAUSE_SUBS);
+}
+function resumeGame(){
+  if(!S.paused) return;
+  S.paused=false;
+  document.getElementById('pause-overlay').classList.add('hidden');
+  startTimers();
+}
+function confirmReset(){
+  if(confirm('Start over? Your pipeline gets given to the new guy.')) {
+    S.paused=false;
+    document.getElementById('pause-overlay').classList.add('hidden');
+    showLoadingScreen(()=>initGame());
+  }
+}
+
+// ── LOADING SCREEN ────────────────────────────────────────
+function showLoadingScreen(onComplete){
+  const scr=document.getElementById('loading-screen');
+  const game=document.getElementById('game-screen');
+  // Hard hide the game screen
+  game.style.display='none';
+  // Reset loading bar
+  const bar=document.getElementById('loading-bar');
+  const status=document.getElementById('loading-status');
+  const joke=document.getElementById('loading-joke');
+  const title=document.getElementById('loading-title');
+  bar.style.width='0%';
+  bar.style.transition='none';
+  joke.textContent='';
+  status.textContent='Authenticating credentials...';
+  // Show loading screen
+  scr.style.display='flex';
+  scr.classList.remove('hidden','gone');
+  scr.style.opacity='0';
+  setTimeout(()=>{scr.style.transition='opacity .3s';scr.style.opacity='1';},20);
+  const titles=["Logging into Encompass...","Reloading the pipeline...","Wiping your Salesforce history...","Starting fresh (finally)..."];
+  title.textContent=pick(titles);
+  let step=0;
+  const interval=setInterval(()=>{
+    if(step>=LOADING_STEPS.length){clearInterval(interval);return;}
+    const s=LOADING_STEPS[step];
+    bar.style.transition='width .2s';
+    bar.style.width=s.pct+'%';
+    status.textContent=s.status;
+    if(s.joke){joke.style.opacity='0';setTimeout(()=>{joke.textContent=s.joke;joke.style.transition='opacity .4s';joke.style.opacity='1';},200);}
+    step++;
+    if(step===LOADING_STEPS.length){
+      setTimeout(()=>{
+        scr.style.opacity='0';
+        setTimeout(()=>{
+          scr.style.display='none';
+          scr.classList.add('gone');
+          game.style.display='block';
+          game.style.opacity='0';
+          setTimeout(()=>{game.style.transition='opacity .4s';game.style.opacity='1';},20);
+          if(onComplete) onComplete();
+        },350);
+      },900);
+    }
+  },300);
+}
+
+// ── PHONE POPUP ───────────────────────────────────────────
+let _phoneTimer=null;
+function startPhonePopups(){
+  clearTimeout(_phoneTimer);
+  function scheduleNext(){
+    const delay=rnd(22000,45000);
+    _phoneTimer=setTimeout(()=>{
+      if(S.gameOver||S.paused) return scheduleNext();
+      showPhonePopup();
+      scheduleNext();
+    },delay);
+  }
+  scheduleNext();
+}
+function showPhonePopup(){
+  const agentKeys=Object.keys(PHONE_AGENTS);
+  const key=pick(agentKeys);
+  const agent=PHONE_AGENTS[key];
+  const msg=pick(agent.msgs);
+  const side=Math.random()>.5?'right':'left';
+  const wrap=document.getElementById('phone-popup-wrap');
+  const el=document.createElement('div');
+  el.className=`phone-popup ${side}`;
+  el.innerHTML=`<div class="phone-frame">
+    <div class="phone-bar ${agent.color}">${agent.emoji} ${agent.name}</div>
+    <div class="phone-body"><div class="phone-bubble">${msg}</div></div>
+  </div>`;
+  wrap.appendChild(el);
+  setTimeout(()=>{
+    el.className=`phone-popup ${side} slide-out-${side}`;
+    setTimeout(()=>el.remove(),400);
+  },4500);
+}
+
+// ── COMMISSION DEDUCTION ANIMATION ───────────────────────
+function showCommDing(amount){
+  const el=document.createElement('div');
+  el.className='comm-ding';
+  el.textContent=`-$${amount} credit pull fee`;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1700);
+}
+
+// ── COMBO BADGE ───────────────────────────────────────────
+let _comboBadgeTimer=null;
+function showComboBadge(streak){
+  clearTimeout(_comboBadgeTimer);
+  const existing=document.querySelector('.combo-badge');
+  if(existing) existing.remove();
+  const cls=streak>=10?'x10':streak>=5?'x5':'x3';
+  const labels={x3:`🔥 x${streak} Combo`,x5:`⚡ x${streak} Streak! XP x2`,x10:`💎 x${streak} LEGENDARY`};
+  const el=document.createElement('div');
+  el.className=`combo-badge ${cls}`;
+  el.textContent=labels[cls];
+  document.body.appendChild(el);
+  _comboBadgeTimer=setTimeout(()=>el.remove(),2500);
+}
+
+// ── TAGLINE ROTATION ──────────────────────────────────────
+function rotateTagline(){
+  const el=document.getElementById('game-tagline');
+  if(!el) return;
+  el.style.opacity='0';
+  setTimeout(()=>{el.textContent=pick(TAGLINES);el.style.transition='opacity .5s';el.style.opacity='1';},300);
+}
+
 function initGame(){
   clearAllTimers();
   _cid=0;
@@ -1045,16 +1402,28 @@ function initGame(){
     xp:0,level:1,
     month:1,goalCur:0,goalTgt:8000,
     revealed:{},asked:{},messages:{},decided:{},newBadge:{},
-    gameOver:false,pipeline:[],
+    gameOver:false,paused:false,pipeline:[],
     monthCorrect:0,monthDecisions:0,monthBadLoans:0,
     totalCorrect:0,totalDecisions:0,totalBadLoans:0,
     rateSpiked:false,
     respTimers:{},
+    creditPullDeductions:0,
   };
-  document.getElementById('end-screen').classList.add('hidden');
+  // Hard reset all DOM state for clean restart
+  const endScr=document.getElementById('end-screen');
+  endScr.classList.add('hidden');
+  endScr.style.display='none';
   closeOverlay();
   document.getElementById('streak-wrap').innerHTML='';
   document.getElementById('ticker-wrap').innerHTML='';
+  document.getElementById('pause-overlay').classList.add('hidden');
+  document.getElementById('phone-popup-wrap').innerHTML='';
+  const existingCombo=document.querySelector('.combo-badge');
+  if(existingCombo) existingCombo.remove();
+  // Wipe inbox and pipeline DOM completely so old bubbles don't persist
+  document.getElementById('inbox').innerHTML='<div style="font-size:12px;color:#B4B2A9;padding:20px 0 0 4px;">Loading your first clients...</div>';
+  document.getElementById('pipeline-inner').innerHTML='<div class="pempty">No loans in pipeline yet.</div>';
+  document.getElementById('chat').innerHTML='<div class="empty-state"><span style="font-size:40px">☎️</span><span style="font-weight:700;">Tap a client to open their file.</span></div>';
   // spawn initial clients with staggered animation
   for(let i=0;i<6;i++){
     setTimeout(()=>{
@@ -1066,14 +1435,26 @@ function initGame(){
   }
   renderChat();renderPipeline();updateStats();
   startTimers();
+  startPhonePopups();
+  rotateTagline();
+  setInterval(rotateTagline,30000);
 }
 
-function clearAllTimers(){Object.values(T).forEach(t=>{clearInterval(t);clearTimeout(t);});T={};}
+function clearAllTimers(){
+  Object.values(T).forEach(t=>{clearInterval(t);clearTimeout(t);});
+  T={};
+  clearTimeout(_phoneTimer);
+  _phoneTimer=null;
+  clearTimeout(_comboBadgeTimer);
+  _comboBadgeTimer=null;
+  const existing=document.querySelector('.combo-badge');
+  if(existing) existing.remove();
+}
 
 function startTimers(){
   // New client every 12s
   T.newClient=setInterval(()=>{
-    if(S.gameOver) return;
+    if(S.gameOver||S.paused) return;
     const c=generateClient();
     S.queue.push(c);
     S.newBadge[c.id]='new';
@@ -1083,7 +1464,7 @@ function startTimers(){
 
   // Impatience + double texts — only when NOT the active client
   T.imp=setInterval(()=>{
-    if(S.gameOver) return;
+    if(S.gameOver||S.paused) return;
     const now=Date.now();
     S.queue.forEach(c=>{
       if(S.decided[c.id]||c.id===S.active) return;
@@ -1128,7 +1509,7 @@ function startTimers(){
 
   // Response timer — only updates the bar fill, never rebuilds chat
   T.respTimer=setInterval(()=>{
-    if(S.gameOver||!S.active) return;
+    if(S.gameOver||S.paused||!S.active) return;
     const c=getC(S.active);
     if(!c||S.decided[c.id]) return;
     if(!c.openedAt) return;
@@ -1156,7 +1537,7 @@ function startTimers(){
 
   // Pipeline every 5s
   T.pipe=setInterval(()=>{
-    if(S.gameOver) return;
+    if(S.gameOver||S.paused) return;
     let changed=false;
     S.pipeline.forEach(p=>{
       if(p.stage==='closed') return;
@@ -1590,21 +1971,21 @@ function askQ(clientId,qId){
   const dti=c.flags.dti+'';
 
   if(qId==='fico'){
-    msgs.push({role:'harry',text:"Let me pull your credit."});
-    if(c.vibe==='rude'&&c.flags.fico<620) msgs.push({role:'client',text:pick(["That number is a LIE.","My score was higher last month. I paid something.","Credit bureaus have it out for me specifically.","That can't be right."])});
+    const creditQs=["Let me pull your credit.","Running credit now...","Pulling your credit report.","Let me check your credit real quick.","Looking up your credit score."];msgs.push({role:'harry',text:pick(creditQs)});
+    if(c.vibe==='rude'&&c.flags.fico<620){const rudeCreditReax=["That number is a LIE.","My score was higher last month. I paid something.","Credit bureaus have it out for me specifically.","That can't be right.","I dispute that.","My cousin checked it last week and it was different.","That's my old score. I paid something recently. I think.","Are you sure that's me? Could be a different person.","I've never missed a payment intentionally.","That score is wrong and I can prove it. Eventually."];msgs.push({role:'client',text:pick(rudeCreditReax)});}     
     msgs.push({role:'sys',text:`📊 FICO ${fico} — ${FICO_R[fico]||'Score: '+fico}`});
     if(c.flags.fico<620) newFlags.push('low_fico');
   }
   else if(qId==='dti'){
     const spike=S.rateSpiked&&c.flags.dti>38?' ⚠️ Worse with rate spike.':'';
-    msgs.push({role:'harry',text:"Running your debt-to-income..."});
+    const dtiQs=["Running your debt-to-income...","Let me calculate your DTI.","Looking at your debt load.","Pulling your monthly obligations.","Running the debt-to-income ratio now."];msgs.push({role:'harry',text:pick(dtiQs)});
     msgs.push({role:'sys',text:`📉 DTI ${dti}% — ${DTI_R[dti]||dti+'%'}${spike}`});
     if(c.flags.dti>43||(S.rateSpiked&&c.flags.dti>38)) newFlags.push('high_dti');
   }
   else if(qId==='income'){
     const v=c.flags.income;
-    msgs.push({role:'harry',text:"Walk me through your income situation."});
-    const cl={w2:["W2, same place 3 years. Very boring.","Salaried. Paystubs ready to go."],'1099':["Contract work. Two years of returns.","Freelance. Some months great, some... character building."],tips:["Restaurant work. Tips are like 80% of my check.","I bartend. Tips are real, I keep notes."],cash:["Cash business. Very normal. Very legal.","I get paid cash. My clients prefer it. I prefer it too."]};
+    const incQs=["Walk me through your income situation.","How are you employed?","W2, 1099, or self-employed?","What does your income situation look like?","Tell me how you get paid."];msgs.push({role:'harry',text:pick(incQs)});
+    const cl={w2:["W2, same company for years. Very stable.","Salaried employee. Paystubs are ready to send.","Full time W2. Direct deposit every two weeks like clockwork.","I work for a company. They pay me. I have paystubs. Very normal.","W2, same employer. My HR can verify same day.","Salary. Same place 6 years. Benefits, 401k, the whole thing."],'1099':["Contract work. I have two years of returns ready.","Freelance. Some months great, some... character building. Average is good.","1099 income. It varies but the last two years have been strong.","Self-employed. I have a good accountant. The returns are verifiable.","Contract consultant. Steady clients. 1099. Two years documented.","I work for myself. Income is solid. My accountant prepared everything."],tips:["Restaurant work. Tips are like 80% of my check.","I bartend. The tips are real. I keep a log actually.","Fine dining server. Tips are consistent and significant.","I work in hospitality. Most of my income is tips but it's steady.","Tipped employee. Same place for years. I track every shift.","Service industry. Tips are my main income. Bank deposits show it all."],cash:["Cash business. Very normal. Very legal. No paper trail but trust me.","I get paid cash. My clients prefer it. I also prefer it.","Everything is cash. It's a cash-based business. Very common in my field.","Cash income. I deposit what I need. The rest stays liquid. Very efficient.","I run a cash operation. Totally legitimate. My accountant knows about it. Mostly.","Cash only. Always has been. I'm working on the documentation side of things."]};
     msgs.push({role:'client',text:pick(cl[v]||cl['1099'])});
     const sl={w2:"💼 W2. Easy to verify. ✅",'1099':"📝 1099 self-employed. Need 2 years returns, average income. Could be fine or a nightmare.",tips:"💵 Tip income. Hard to document. Needs employer letter + 24mo bank deposits. Risky.",cash:"🚩 Cash income. No documentation = no loan."};
     msgs.push({role:'sys',text:sl[v]||"💼 Income noted."});
@@ -1613,18 +1994,25 @@ function askQ(clientId,qId){
     if(v==='cash') newFlags.push('cash_income');
   }
   else if(qId==='property'){
-    msgs.push({role:'harry',text:"Tell me about the property."});
-    if(c.secret.includes('sketchy_prop')){msgs.push({role:'client',text:"Condo. Mixed-use building. HOA is like 30% owner-occupied."});msgs.push({role:'sys',text:"🏢 Non-warrantable condo. Fannie/Freddie won't touch it."});newFlags.push('sketchy_prop');}
-    else if(c.secret.includes('fixer')){msgs.push({role:'client',text:"Needs 'some work.' Listing says 'investor special.' Roof has character."});msgs.push({role:'sys',text:"🔨 Fixer-upper. Will likely fail appraisal minimum standards."});newFlags.push('fixer');}
-    else if(c.secret.includes('rural')){msgs.push({role:'client',text:"Rural. Big lot. Has a pond. And chickens apparently."});msgs.push({role:'sys',text:"🌾 Rural/acreage. USDA eligibility depends on area."});newFlags.push('rural');}
-    else{msgs.push({role:'client',text:"Single family. Nothing weird. Well, there's a hot tub."});msgs.push({role:'sys',text:"🏠 Standard single-family. No property concerns."});}
+    const propQs=["Tell me about the property.","What's the property situation?","Walk me through the property.","Any details on the property I should know?"];
+    msgs.push({role:'harry',text:pick(propQs)});
+    if(c.secret.includes('sketchy_prop')){const r=pick(PROP_CONDO);msgs.push({role:'client',text:r[0]});msgs.push({role:'sys',text:r[1]});newFlags.push('sketchy_prop');}
+    else if(c.secret.includes('fixer')){const r=pick(PROP_FIXER);msgs.push({role:'client',text:r[0]});msgs.push({role:'sys',text:r[1]});newFlags.push('fixer');}
+    else if(c.secret.includes('rural')){const r=pick(PROP_RURAL);msgs.push({role:'client',text:r[0]});msgs.push({role:'sys',text:r[1]});newFlags.push('rural');}
+    else{const r=pick(PROP_CLEAN);msgs.push({role:'client',text:r[0]});msgs.push({role:'sys',text:r[1]});}
   }
   else if(qId==='employment'){
-    msgs.push({role:'harry',text:"How long at your current job?"});
-    if(c.secret.includes('new_job')){msgs.push({role:'client',text:"Started 2 months ago! Same industry though. Got a raise."});msgs.push({role:'sys',text:"⚠️ Only 2 months at current job. UW wants to see 2+ years. Risky."});newFlags.push('new_job');}
-    else if(c.secret.includes('tip_income')){msgs.push({role:'client',text:"4 years at the same restaurant!"});msgs.push({role:'sys',text:"✅ Stable employment. Income documentation is still the challenge."});}
-    else if(c.secret.includes('self_employed')){msgs.push({role:'client',text:"Self-employed 3 years. Taxes are complicated."});msgs.push({role:'sys',text:"📝 Self-employed 3 years. Need 2 years returns + YTD P&L."});}
-    else{msgs.push({role:'client',text:"Been there for years. They know my coffee order."});msgs.push({role:'sys',text:"✅ Stable employment. No concerns."});}
+    const empQs=["How long at your current job?","Walk me through your employment history.","Tell me about your job situation.","How stable is your employment?","Same employer for how long?"];
+    msgs.push({role:'harry',text:pick(empQs)});
+    const newJobLines=["Started 2 months ago! Same industry though. Got a raise.","Just transitioned. Better company, same field. Started 7 weeks ago.","New job last month. Significant pay increase. Same type of work.","Been here 6 weeks. It's amazing. The old place was toxic.","Technically started recently but I have 8 years in the industry."];
+    const newJobSys=["⚠️ Only 2 months at current job. UW wants 2+ years. Risky.","⚠️ 7 weeks in. Needs 30-day pay stub + offer letter minimum. UW will flag this.","⚠️ Recent job change. Same field helps but UW still wants history.","⚠️ Under 2 months. This is a problem even with industry experience.","⚠️ Short tenure. Offer letter and recent paystub required. Still risky."];
+    const tipLines=["4 years at the same restaurant!","Been there 5 years. Same section, same regulars.","Six years at this place. They'd be lost without me honestly.","I've been there forever. The owner knows my car."];
+    const selfLines=["Self-employed 3 years. The taxes are... creative.","Run my own business for 4 years. Accountant handles the complicated part.","Five years self-employed. The income is real, the returns prove it.","Own my own business. Been doing it 6 years. Very established."];
+    const stableLines=["Been there for years. They know my coffee order.","Same employer for 9 years. I have health insurance and a 401k. Very adult.","Eleven years same company. I've outlasted three managers.","Seven years, same role. I could do this job in my sleep. I sometimes do.","Long enough that my boss knows my spouse's name."];
+    if(c.secret.includes('new_job')){const idx=Math.floor(Math.random()*newJobLines.length);msgs.push({role:'client',text:newJobLines[idx]});msgs.push({role:'sys',text:newJobSys[idx]});newFlags.push('new_job');}
+    else if(c.secret.includes('tip_income')){msgs.push({role:'client',text:pick(tipLines)});msgs.push({role:'sys',text:"✅ Stable employment. Income documentation is still the challenge."});}
+    else if(c.secret.includes('self_employed')){msgs.push({role:'client',text:pick(selfLines)});msgs.push({role:'sys',text:"📝 Self-employed. Need 2 years returns + YTD P&L. " + (S.month>=3?"Could be a trap — verify those returns carefully.":"")});}
+    else{msgs.push({role:'client',text:pick(stableLines)});msgs.push({role:'sys',text:"✅ Stable employment. No concerns."});}
     if(c.secret.includes('va_loan')){msgs.push({role:'sys',text:"🎖️ Veteran — confirm DD-214. VA loan eligibility likely."});newFlags.push('va_loan');}
   }
 
@@ -1675,6 +2063,12 @@ function decide(clientId,approved){
     S.streak=0;
     S.monthBadLoans++;S.totalBadLoans++;
     xpGain=0;
+    // Deduct $100 if credit was pulled on a bad loan
+    if(S.asked[clientId]&&S.asked[clientId].fico){
+      S.commission=Math.max(0,S.commission-100);
+      S.goalCur=Math.max(0,S.goalCur-100);
+      showCommDing(100);
+    }
     flash('💀 STRIKE '+S.strikes+'/5','#A32D2D');
     if(S.strikes===3) toast('⚠️ 3 Strikes — formal warning issued. Manager is watching.','r');
     document.getElementById('streak-wrap').innerHTML='';
@@ -1726,10 +2120,11 @@ function handleCallback(clientId,optIdx){
 
 function checkStreak(){
   const s=S.streak;
-  if(s===3){showStreakBanner('🔥 3 in a row! XP x2',2);}
-  else if(s===5){showStreakBanner('🔥🔥 5 streak! You\'re on fire!',3);}
-  else if(s===10){showStreakBanner('💎 10 STREAK. LEGENDARY.',5);}
-  else if(s>0&&s%5===0){showStreakBanner(`🔥 ${s} streak! Unstoppable!`,4);}
+  if(s===3){showStreakBanner('🔥 3 in a row! XP x2',2);showComboBadge(3);}
+  else if(s===5){showStreakBanner('🔥🔥 5 streak! You\'re on fire!',3);showComboBadge(5);}
+  else if(s===10){showStreakBanner('💎 10 STREAK. LEGENDARY.',5);showComboBadge(10);}
+  else if(s>0&&s%5===0){showStreakBanner(`🔥 ${s} streak! Unstoppable!`,4);showComboBadge(s);}
+  else if(s>0&&s%3===0){showComboBadge(s);}
 }
 
 function showStreakBanner(msg,mult){
@@ -1867,6 +2262,12 @@ function startHiring(){
 }
 
 document.getElementById('start-btn').addEventListener('click',startHiring);
+document.getElementById('pause-btn-hdr').addEventListener('click',pauseGame);
+document.getElementById('reset-btn-hdr').addEventListener('click',()=>{
+  if(confirm('Start over? Your pipeline gets transferred to the new guy.')) showLoadingScreen(()=>initGame());
+});
+document.getElementById('pause-resume-btn').addEventListener('click',resumeGame);
+document.getElementById('pause-reset-btn').addEventListener('click',confirmReset);
 </script>
 </body>
 </html>
