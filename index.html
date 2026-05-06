@@ -85,7 +85,7 @@ body{background:var(--cream);font-family:'Nunito',sans-serif;min-height:100vh;ov
 
 /* TICKERS */
 .ticker{border-radius:10px;padding:7px 14px;margin-bottom:7px;font-size:12px;font-weight:800;display:flex;align-items:center;gap:8px;animation:slideDown .3s ease;}
-.ticker.realtor{background:var(--navy);color:#fff;}
+
 .ticker.rate{background:#E24B4A;color:#fff;}
 .ticker.rush{background:linear-gradient(90deg,#B8860B,#DAA520);color:#fff;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
@@ -293,6 +293,54 @@ body{background:var(--cream);font-family:'Nunito',sans-serif;min-height:100vh;ov
 .loading-bar{height:100%;background:#fff;border-radius:4px;transition:width .1s linear;}
 .loading-status{font-size:12px;color:rgba(255,255,255,.7);font-weight:700;text-align:center;min-height:18px;}
 .loading-joke{font-size:11px;color:rgba(255,255,255,.5);text-align:center;max-width:280px;line-height:1.5;font-style:italic;min-height:32px;}
+
+/* TEAMS POPUP */
+.teams-popup{position:fixed;max-width:270px;z-index:450;pointer-events:none;}
+.teams-popup.left{left:-290px;animation:teamsInLeft .4s cubic-bezier(.34,1.56,.64,1) both;}
+.teams-popup.right{right:-290px;animation:teamsInRight .4s cubic-bezier(.34,1.56,.64,1) both;}
+.teams-popup.slide-out-left{animation:phoneOutLeft .35s ease forwards!important;}
+.teams-popup.slide-out-right{animation:phoneOutRight .35s ease forwards!important;}
+@keyframes teamsInLeft{from{left:-290px;opacity:0;}to{left:12px;opacity:1;}}
+@keyframes teamsInRight{from{right:-290px;opacity:0;}to{right:12px;opacity:1;}}
+.teams-frame{background:#fff;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.22);overflow:hidden;border-left:4px solid #6264A7;}
+.teams-bar{background:#6264A7;padding:5px 10px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:5px;}
+.teams-body{padding:8px 10px;font-size:11px;color:#2C2C2A;background:#fff;}
+.teams-sender{font-weight:800;font-size:10px;color:#6264A7;margin-bottom:2px;}
+.teams-msg{font-size:11px;line-height:1.5;color:#2C2C2A;}
+.teams-popup.boss .teams-frame{border-left-color:#A32D2D;}
+.teams-popup.boss .teams-bar{background:#A32D2D;}
+
+/* GOOGLE REVIEW POPUP */
+.review-popup{position:fixed;bottom:170px;right:-300px;max-width:250px;z-index:450;pointer-events:none;animation:reviewIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes reviewIn{from{right:-300px;opacity:0;}to{right:12px;opacity:1;}}
+.review-popup.slide-out{animation:reviewOut .35s ease forwards;}
+@keyframes reviewOut{from{right:12px;opacity:1;}to{right:-300px;opacity:0;}}
+.review-frame{background:#fff;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.2);overflow:hidden;border:2px solid #FBBC04;}
+.review-bar{background:#FBBC04;padding:5px 10px;font-size:10px;font-weight:800;color:#2C2C2A;display:flex;align-items:center;gap:5px;}
+.review-body{padding:8px 10px;font-size:11px;line-height:1.5;color:#2C2C2A;}
+.review-stars{color:#FBBC04;font-size:13px;letter-spacing:1px;}
+
+/* CALENDAR INVITE */
+.cal-popup{position:fixed;top:70px;right:-290px;max-width:250px;z-index:450;pointer-events:none;animation:calIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes calIn{from{right:-290px;opacity:0;}to{right:12px;opacity:1;}}
+.cal-popup.slide-out{animation:calOut .35s ease forwards;}
+@keyframes calOut{from{right:12px;opacity:1;}to{right:-290px;opacity:0;}}
+.cal-frame{background:#fff;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.18);overflow:hidden;border-left:4px solid #0078D4;}
+.cal-bar{background:#0078D4;padding:5px 10px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:5px;}
+.cal-body{padding:8px 10px;font-size:11px;color:#2C2C2A;line-height:1.5;}
+.cal-title{font-weight:800;font-size:11px;color:#0078D4;margin-bottom:2px;}
+
+/* UW CONDITION BADGE */
+.uw-condition{position:fixed;top:52px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;background:#FAEEDA;color:#854F0B;border:2px solid #FAC775;border-radius:10px;padding:5px 14px;pointer-events:none;animation:dingUp 4s ease forwards;z-index:600;white-space:nowrap;max-width:320px;text-align:center;}
+
+/* RATE ALERT */
+.rate-alert{position:fixed;top:70px;left:-290px;max-width:240px;z-index:450;pointer-events:none;animation:rateIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes rateIn{from{left:-290px;opacity:0;}to{left:12px;opacity:1;}}
+.rate-alert.slide-out{animation:rateOut .35s ease forwards;}
+@keyframes rateOut{from{left:12px;opacity:1;}to{left:-290px;opacity:0;}}
+.rate-frame{background:#fff;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.18);overflow:hidden;border-left:4px solid #E24B4A;}
+.rate-bar{background:#E24B4A;padding:5px 10px;font-size:10px;font-weight:800;color:#fff;display:flex;align-items:center;gap:5px;}
+.rate-body{padding:8px 10px;font-size:11px;color:#2C2C2A;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -1077,6 +1125,91 @@ const FLAG_INFO={low_fico:{l:"⚠️ Low FICO",t:"r"},high_dti:{l:"📉 High DTI
 const DECISIONS={clean:{go:true,yay:"Clean file moves to pipeline.",nay:"That was a clean file. Could've closed that one."},low_fico:{go:false,yay:"FICO failed UW. Bad loan. STRIKE. 😬",nay:"Right — that FICO wasn't happening."},high_dti:{go:false,yay:"DTI blew up at UW. Bad loan. STRIKE. 😬",nay:"Smart. Too much debt. Right call."},self_employed:{go:true,yay:"Returns averaged out well. Closed! 🎉",nay:"2 years of clean returns made it workable. Missed it."},sketchy_prop:{go:false,yay:"Non-warrantable condo killed it in UW. STRIKE. 😬",nay:"Correct — conventional can't do that condo."},rural:{go:true,yay:"USDA eligible area confirmed. Nice close. 🌾",nay:"USDA map showed eligible. Left money on the table."},tip_income:{go:false,yay:"Couldn't document tips. File fell apart. STRIKE. 😬",nay:"Smart. Tip income is nearly impossible to document."},new_job:{go:false,yay:"2 months on the job flagged by UW. STRIKE. 😬",nay:"Correct. 2 months isn't enough."},bonus_income:{go:true,yay:"Base salary alone qualified just fine. Closed! 🎉",nay:"Base salary was enough even without the bonus."},va_loan:{go:true,yay:"VA all day. Zero down, no PMI. Veteran gets their house. 🎖️",nay:"VA qualified. Could've closed that."},fha_ok:{go:true,yay:"FHA eligible. Clean close. 🏠",nay:"FHA eligible. Could've closed that."},fixer:{go:false,yay:"Property condition failed appraisal. STRIKE. 😬",nay:"Right — that property was going to fail appraisal."},cash_income:{go:false,yay:"Undocumented cash income. UW won't touch it. STRIKE. 😬",nay:"Correct. Can't document cash without a paper trail."}};
 const LEVEL_TITLES=["Intern","Loan Officer","Sr. Loan Officer","Top Producer","Regional Closer","VP of Closing","Mortgage Legend","Industry Icon","The GOAT","Untouchable"];
 const XP_THRESHOLDS=[0,300,800,1800,3500,6000,10000,16000,25000,40000];
+const BOSS_MSGS=[
+  // Google review complaints
+  n=>["Subject: URGENT — Google Review","Someone named '{n}' left us a 1-star review. It says and I quote: 'Was told I didn\'t qualify. Harry was rude and didn\'t explain anything.' Did you explain anything?"],
+  n=>["Subject: Another Google Review","'{n}' just left a Google review saying you hung up on them. Did you hang up on them? Don\'t answer that. Just fix it."],
+  n=>["Subject: Google Alert","I have a Google alert set up for our branch name. We have THREE new 1-star reviews this week. THREE. One of them mentions you by first name."],
+  // Realtor complaints
+  n=>["Subject: Chad Pinnacle Realty Called ME","Chad from Pinnacle called my cell at 7am. SEVEN AM. Said you never sent a pre-approval letter. He had me on hold for 11 minutes. ELEVEN MINUTES."],
+  n=>["Subject: Realtor Complaint","I just got off the phone with a very upset Samantha from Coldwell Banker. She said you ghosted her buyer. Did you ghost her buyer? We do not ghost buyers."],
+  n=>["Subject: Bob from RE/MAX","Bob Broker called the branch line and asked for 'anyone except Harry.' I need you to call Bob. Today. Not tomorrow. Today."],
+  n=>["Subject: Realtor Feedback","Jessica at RE/MAX sent me a very long email with a very concerning subject line. I\'m forwarding it to you. Please handle this before I have to handle it."],
+  // Appraisal/fee issues
+  n=>["Subject: Appraisal Fee — {n}","Did {n} pay for their appraisal? Because the appraisal company is calling ME. Why are they calling me? Make this stop."],
+  n=>["Subject: Unpaid Appraisal","{n} — the one you denied last month — is disputing the appraisal fee. They said you told them it was refundable. Did you tell them it was refundable? It is not refundable."],
+  n=>["Subject: WVOE Fee","Did you collect the WVOE fee on the {n} file? I\'m looking at the HUD and I don\'t see it. I need to see it."],
+  // File/closing questions
+  n=>["Subject: {n} File — WHERE IS IT","Why did {n} not close? UW has been waiting 4 days for conditions. FOUR DAYS. I found out from the title company. The TITLE COMPANY."],
+  n=>["Subject: {n} — Withdrew??","I just saw {n} withdrew their application. Did you know about this? Because I\'m finding out right now from the processor. Right now."],
+  n=>["Subject: Disclosure — {n}","Did you send the initial disclosure to {n} within 3 business days? UW is asking. I told them yes. Please make that true."],
+  // General yelling
+  n=>["Subject: Your Numbers","I\'m looking at your pipeline right now. We need to talk. Come see me when you get this. Actually come see me now."],
+  n=>["Subject: Pull-Through Rate","Your pull-through rate is down from last month. Do you know what that means? It means we need to talk about your pull-through rate."],
+  n=>["Subject: Branch Meeting","All-hands tomorrow at 8am. Non-optional. There will be a slide about pull-through rates. One of the slides is about you specifically. Not by name. But you\'ll know."],
+  n=>["Subject: End of Month","It\'s the 28th. Your pipeline is thin. I\'m not panicking. I\'m just making sure you\'re not panicking. Are you panicking? Don\'t panic."],
+  n=>["Subject: Called Your Client","I called {n} myself because they called the main line three times. Three times. I told them you\'d call back within the hour. That was 45 minutes ago."],
+];
+
+const PROCESSOR_MSGS=[
+  n=>`Hey — ${n} is asking a lot of questions about their timeline. I don't have answers. Do you have answers?`,
+  n=>`${n} just emailed saying they're "reconsidering." Thought you should know before I do anything.`,
+  n=>`Quick heads up — ${n}'s employer won't return our verification calls. Going on day 3.`,
+  n=>`${n} wants to know if they can switch the loan program. I told them I'd ask you. Can they?`,
+  n=>`The title company flagged something on ${n}'s property. Not sure what. They said call them.`,
+  n=>`${n} just called and asked to speak to a manager. I sent them to voicemail. You're welcome.`,
+  n=>`FYI — ${n}'s rate lock expires in 6 days. Do you want me to extend? Who's paying for that?`,
+  n=>`Hey can you call ${n}? They've called 4 times today. I may have accidentally let it go to voicemail all 4 times.`,
+  n=>`${n}'s co-borrower is not responding to any of our emails. The co-borrower is their spouse. Might be a situation.`,
+  n=>`${n} wants to remove the co-borrower from the file. Do they qualify without them? I'm guessing no.`,
+  n=>`Just got an email from ${n} that just says "???" — I don't know what that means. Forwarding to you.`,
+  n=>`${n}'s bank statements show a large cash deposit we didn't know about. UW is asking about it.`,
+];
+
+const UW_CONDITIONS=[
+  n=>`🚨 UW Condition — ${n}: 2 months reserves required. Please source and document.`,
+  n=>`🚨 UW Condition — ${n}: LOE needed for credit inquiry from 6 months ago.`,
+  n=>`🚨 UW Condition — ${n}: 12 months cancelled checks for rent verification required.`,
+  n=>`🚨 UW Condition — ${n}: Gift funds need full paper trail. Donor letter + bank statement.`,
+  n=>`🚨 UW Condition — ${n}: Employment gap from 2022 needs LOE signed by borrower.`,
+  n=>`🚨 UW Condition — ${n}: Additional month paystub required. Most recent not in file.`,
+  n=>`🚨 UW Condition — ${n}: HOA cert needed before CTC. Contact association directly.`,
+  n=>`🚨 UW Condition — ${n}: Title commitment shows old lien — needs release documentation.`,
+  n=>`🚨 UW Condition — ${n}: Hazard insurance binder missing. Can't go to CTC without it.`,
+  n=>`🚨 UW Condition — ${n}: Tax transcripts don't match returns. Borrower needs to explain.`,
+];
+
+const GOOGLE_REVIEWS=[
+  (n,outcome)=>`⭐ — "${n} told me I didn't qualify. I want a second opinion. Update: I got one. They also said I didn't qualify." — ${n}`,
+  (n,outcome)=>`⭐ — "Very slow process. ${n} kept asking me questions instead of just approving me. Zero stars if I could." — ${n}`,
+  (n,outcome)=>`⭐⭐ — "Was told my FICO was 'too low.' My credit is fine. Mostly fine. Whatever." — ${n}`,
+  (n,outcome)=>`⭐ — "Applied for a simple HELOC. Was denied. The loan officer kept bringing up my DTI like it was a problem. It was a problem." — ${n}`,
+  (n,outcome)=>`⭐ — "I just wanted $25,000. That's all. I own a house. I have income. Somehow that wasn't enough. Will be telling everyone I know." — ${n}`,
+  (n,outcome)=>`⭐ — "Was pre-approved by someone else immediately. This place is too picky." — ${n}`,
+  (n,outcome)=>`⭐⭐ — "Process took forever. They asked for the same document three times. I gave it to them three times. This is my experience." — ${n}`,
+  (n,outcome)=>`⭐ — "My cousin works at a different bank and he said this approval should have been easy. I'm just saying." — ${n}`,
+];
+
+const CAL_INVITES=[
+  "📅 Your manager has invited you to: '1:1 Check-In 👀' — Tomorrow, 8:00 AM (Non-optional)",
+  "📅 New meeting: 'Quick Sync re: Pipeline' — Today, 4:30 PM. Description: 'Won't take long.'",
+  "📅 'All-Hands: Rate Environment Update' — This Friday. Attendance required. Bring questions. Actually don't bring questions.",
+  "📅 'Branch Compliance Training (Mandatory)' — 3 hours. Bring a snack.",
+  "📅 'Lunch & Learn: Working Smarter Not Harder' — Your manager scheduled this. Irony noted.",
+  "📅 'Q3 Pipeline Review' — Conference Room B. Your numbers will be on slide 7.",
+  "📅 'Team Huddle: Pull-Through Rate Discussion' — 8am. Coffee not provided.",
+  "📅 'Performance Check-In' — Subject line has no emoji. This is concerning.",
+];
+
+const RATE_ALERTS=[
+  "📈 Rate Alert: Up 18bps. That borrower who was borderline? They're not borderline anymore.",
+  "📉 Rates moved again. Your rate lock expirations just became very interesting.",
+  "📈 MBS selling off. Rates ticking up. Any commitments you haven't locked yet — lock them.",
+  "📊 Fed minutes released. Markets unhappy. Rates up 12bps. You're welcome.",
+  "📈 Rate spike: +22bps. If you have a floated file, today is not that file's day.",
+  "📉 Rates down slightly. Your clients who said 'I'll wait' are still waiting.",
+];
+
 const MOOD_ICONS={rude:"😤",needy:"🥺",chill:"😎",pro:"💼",wild:"🤠"};
 
 const TAGLINES=[
@@ -1255,6 +1388,99 @@ function generateClient(){
     isCallback:false,openedAt:null,addedAt:Date.now(),
     doubletexted:false,doubletexted2:false,
   };
+}
+
+// ── TEAMS POPUP ──────────────────────────────────────────
+function showTeamsPopup(type){
+  const wrap=document.getElementById('phone-popup-wrap');
+  const side=type==='boss'?'right':'left';
+  // Get a client name from recent decided files or queue
+  const named=S.queue.filter(c=>S.decided[c.id]&&S.decided[c.id]!=='__left'&&!c.isCallback);
+  const pipeNamed=S.pipeline.filter(p=>p.stage!=='closed');
+  const namePool=[...named.map(c=>c.name),...pipeNamed.map(p=>p.name)];
+  const clientName=namePool.length?pick(namePool).split(' ')[0]:'your client';
+
+  let sender,msgArr,barLabel;
+  if(type==='boss'){
+    const tmpl=pick(BOSS_MSGS);
+    const parts=tmpl(clientName);
+    sender='Boss';barLabel='📧 Outlook — New Email';
+    const el=document.createElement('div');
+    el.className=`teams-popup boss ${side}`;
+    el.style.bottom=(120+Math.random()*80)+'px';
+    el.innerHTML=`<div class="teams-frame">
+      <div class="teams-bar">📧 ${barLabel}</div>
+      <div class="teams-body">
+        <div class="teams-sender">From: Your Boss</div>
+        <div style="font-size:10px;color:#854F0B;font-weight:700;margin-bottom:3px;">${parts[0]}</div>
+        <div class="teams-msg">${parts[1].replace('{n}',clientName)}</div>
+      </div></div>`;
+    wrap.appendChild(el);
+    setTimeout(()=>{el.className=`teams-popup boss ${side} slide-out-${side}`;setTimeout(()=>el.remove(),400);},6000);
+  } else {
+    const msg=pick(PROCESSOR_MSGS)(clientName);
+    const el=document.createElement('div');
+    el.className=`teams-popup ${side}`;
+    el.style.bottom=(120+Math.random()*80)+'px';
+    el.innerHTML=`<div class="teams-frame">
+      <div class="teams-bar">💬 Microsoft Teams — Processor</div>
+      <div class="teams-body">
+        <div class="teams-sender">Processor</div>
+        <div class="teams-msg">${msg}</div>
+      </div></div>`;
+    wrap.appendChild(el);
+    setTimeout(()=>{el.className=`teams-popup ${side} slide-out-${side}`;setTimeout(()=>el.remove(),400);},5000);
+  }
+}
+
+// ── GOOGLE REVIEW ─────────────────────────────────────────
+function showGoogleReview(){
+  const denied=S.queue.filter(c=>S.decided[c.id]&&S.decided[c.id]!=='__pipeline'&&S.decided[c.id]!=='__left'&&!c.isCallback);
+  const client=denied.length?pick(denied):null;
+  const name=client?client.name.split(' ')[0]:'A recent applicant';
+  const tmpl=pick(GOOGLE_REVIEWS);
+  const text=tmpl(name,'denied');
+  const el=document.createElement('div');
+  el.className='review-popup';
+  el.innerHTML=`<div class="review-frame">
+    <div class="review-bar">⭐ Google Review — New Alert</div>
+    <div class="review-body"><div class="review-stars">⭐☆☆☆☆</div><div style="margin-top:4px;font-size:11px;line-height:1.5">${text}</div></div>
+  </div>`;
+  document.body.appendChild(el);
+  setTimeout(()=>{el.classList.add('slide-out');setTimeout(()=>el.remove(),400);},5500);
+}
+
+// ── CALENDAR INVITE ───────────────────────────────────────
+function showCalInvite(){
+  const el=document.createElement('div');
+  el.className='cal-popup';
+  el.innerHTML=`<div class="cal-frame">
+    <div class="cal-bar">📅 Outlook Calendar — New Invite</div>
+    <div class="cal-body"><div class="cal-title">${pick(CAL_INVITES)}</div></div>
+  </div>`;
+  document.body.appendChild(el);
+  setTimeout(()=>{el.classList.add('slide-out');setTimeout(()=>el.remove(),400);},5000);
+}
+
+// ── RATE ALERT ────────────────────────────────────────────
+function showRateAlert(){
+  const el=document.createElement('div');
+  el.className='rate-alert';
+  el.innerHTML=`<div class="rate-frame">
+    <div class="rate-bar">📊 Rate Desk Alert</div>
+    <div class="rate-body">${pick(RATE_ALERTS)}</div>
+  </div>`;
+  document.body.appendChild(el);
+  setTimeout(()=>{el.classList.add('slide-out');setTimeout(()=>el.remove(),400);},5000);
+}
+
+// ── UW CONDITION ──────────────────────────────────────────
+function showUWCondition(msg){
+  const el=document.createElement('div');
+  el.className='uw-condition';
+  el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),4000);
 }
 
 // ── PAUSE / WATER COOLER ──────────────────────────────────
@@ -1436,6 +1662,8 @@ function initGame(){
   renderChat();renderPipeline();updateStats();
   startTimers();
   startPhonePopups();
+  // Delay distraction popups so first 30s is clean
+  setTimeout(()=>startTimers&&null,0); // timers already started
   rotateTagline();
   setInterval(rotateTagline,30000);
 }
@@ -1443,24 +1671,37 @@ function initGame(){
 function clearAllTimers(){
   Object.values(T).forEach(t=>{clearInterval(t);clearTimeout(t);});
   T={};
-  clearTimeout(_phoneTimer);
-  _phoneTimer=null;
-  clearTimeout(_comboBadgeTimer);
-  _comboBadgeTimer=null;
-  const existing=document.querySelector('.combo-badge');
-  if(existing) existing.remove();
+  clearTimeout(_phoneTimer);_phoneTimer=null;
+  clearInterval(T.boss);clearInterval(T.proc);clearInterval(T.review);clearInterval(T.cal);clearInterval(T.rateAlert);
+  clearTimeout(_comboBadgeTimer);_comboBadgeTimer=null;
+  const existing=document.querySelector('.combo-badge');if(existing)existing.remove();
+  // Remove any lingering popups
+  document.getElementById('phone-popup-wrap').innerHTML='';
+  document.querySelectorAll('.teams-popup,.review-popup,.cal-popup,.rate-alert').forEach(e=>e.remove());
 }
 
 function startTimers(){
   // New client every 12s
-  T.newClient=setInterval(()=>{
-    if(S.gameOver||S.paused) return;
-    const c=generateClient();
-    S.queue.push(c);
-    S.newBadge[c.id]='new';
-    renderQueue();updateStats();
-    toast(`${c.emoji} ${c.name.split(' ')[0]} just landed in your inbox.`,'b');
-  },12000);
+  // Inbox speed scales with month: m1=10s, m3=8s, m5=6s, m8+=4s
+  function getInboxInterval(){
+    const m=S.month||1;
+    if(m>=8) return 4000;
+    if(m>=5) return 6000;
+    if(m>=3) return 8000;
+    return 10000;
+  }
+  function scheduleNextClient(){
+    T.newClient=setTimeout(()=>{
+      if(S.gameOver||S.paused){scheduleNextClient();return;}
+      const c=generateClient();
+      S.queue.push(c);
+      S.newBadge[c.id]='new';
+      renderQueue();updateStats();
+      toast(`${c.emoji} ${c.name.split(' ')[0]} just landed in your inbox.`,'b');
+      scheduleNextClient();
+    },getInboxInterval());
+  }
+  scheduleNextClient();
 
   // Impatience + double texts — only when NOT the active client
   T.imp=setInterval(()=>{
@@ -1485,7 +1726,8 @@ function startTimers(){
         S.messages[c.id].push({role:'client',text:pick(pool2)});
         if(S.active===c.id) renderChat();
       }
-      const drain=c.vibe==='rude'?6:c.vibe==='needy'?2:4;
+      const monthMult=Math.min(2.5,1+(S.month-1)*0.2);
+      const drain=Math.round((c.vibe==='rude'?6:c.vibe==='needy'?2:4)*monthMult);
       c.imp=Math.max(0,c.imp-drain);
       if(c.imp===0){
         if(!S.messages[c.id]) S.messages[c.id]=[{role:'client',text:c.intro}];
@@ -1556,6 +1798,11 @@ function startTimers(){
           setTimeout(()=>gb.classList.remove('pulse'),1000);
           checkLevelUp();updateStats();
           if(Math.random()<.35) scheduleCallback(p);
+        } else if(p.stage==='uw'&&p.progress>40&&!p.uwConditionFired&&Math.random()<.45){
+          // Fire UW condition while in underwriting
+          p.uwConditionFired=true;
+          const cond=pick(UW_CONDITIONS);
+          setTimeout(()=>showUWCondition(cond(p.name.split(' ')[0])),rnd(3000,8000));
         }
         changed=true;
       }
@@ -1572,11 +1819,32 @@ function startTimers(){
     setTimeout(()=>{S.rateSpiked=false;},20000);
   },75000);
 
-  // Realtor pressure every 35s
-  T.realtor=setInterval(()=>{
-    if(S.gameOver||Math.random()>.5) return;
-    showTicker(pick(REALTOR_MSGS),'realtor');
-  },35000);
+  // Teams: Boss messages every 55s
+  T.boss=setInterval(()=>{
+    if(S.gameOver||S.paused||Math.random()>.55) return;
+    showTeamsPopup('boss');
+  },55000);
+  // Teams: Processor messages every 38s
+  T.proc=setInterval(()=>{
+    if(S.gameOver||S.paused||Math.random()>.5) return;
+    showTeamsPopup('proc');
+  },38000);
+  // Google review popups every 90s
+  T.review=setInterval(()=>{
+    if(S.gameOver||S.paused||Math.random()>.4) return;
+    showGoogleReview();
+  },90000);
+  // Calendar invites every 70s
+  T.cal=setInterval(()=>{
+    if(S.gameOver||S.paused||Math.random()>.35) return;
+    showCalInvite();
+  },70000);
+  // Rate alerts every 80s
+  T.rateAlert=setInterval(()=>{
+    if(S.gameOver||S.paused||Math.random()>.4) return;
+    showRateAlert();
+  },80000);
+  // UW conditions fire from pipeline (handled in pipe timer)
 
   // Month check every 25s
   T.month=setInterval(checkMonthComplete,25000);
@@ -1619,13 +1887,14 @@ function startNextMonth(){
   // Rush: flood with 4-5 new clients
   setTimeout(()=>{
     showTicker(`🌊 Month ${S.month} rush — new clients flooding in!`,'rush');
-    for(let i=0;i<5;i++){
+    const rushCount=Math.min(3+S.month,9);
+    for(let i=0;i<rushCount;i++){
       setTimeout(()=>{
         const c=generateClient();
         S.queue.push(c);
         S.newBadge[c.id]='new';
         renderQueue();updateStats();
-      },i*300);
+      },i*250);
     }
   },600);
   // difficulty hint
